@@ -1,4 +1,6 @@
+import MovieInputComponent from './fieldComponent';
 import MovieListComponent from "./MovieList.js";
+import HeadingComponent from "./Heading";
 
 function App() {
   const movies = [
@@ -94,8 +96,20 @@ function App() {
     },
   ];
 
+  // title of webpage 
+  const title ='Movie List';
+
+  // add new movie to the list
+  const addMovie = (movie) =>{
+    // merge new movie with added movies
+    const addedMovie = [...movies, movie];
+    console.log(addedMovie);
+  };
+
   return (
     <div className="container">
+      <HeadingComponent title = {title} />
+      <MovieInputComponent movies = {movies} addMovie ={addMovie}/>
       <MovieListComponent movies={movies} />
     </div>
   );

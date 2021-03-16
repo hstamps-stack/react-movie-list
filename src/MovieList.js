@@ -1,6 +1,4 @@
 const MovieListComponent = ({ movies }) => {
-  console.log(movies);
-
   const getMovieDetails = (movieId) => {
     const foundMovie = movies.find((movie) => movie.id === movieId);
     // check to see if movie in array
@@ -19,14 +17,14 @@ const MovieListComponent = ({ movies }) => {
               <th scope="col">Movie Name</th>
               <th scope="col">Genre</th>
               <th scope="col">Year</th>
-              <th scope="col"> Movie Cover</th>
+              <th scope="col">Movie Cover</th>
             </tr>
           </thead>
           <tbody>
             {movies.map((movie, index) => {
               return (
                 <tr key={index}>
-                  <td className="border border-light p">
+                  <td className="border border-light">
                     <a
                       href={movie.imdbLink}
                       target="_blank"
