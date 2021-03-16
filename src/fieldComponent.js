@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const MovieInputComponent = ({movies,addMovie}) =>{
+const MovieInputComponent = ({movies,addMovies}) =>{
     const [MovieTitle,setMovieTitle ] = useState('');
     const [MovieGenre,setMovieGenre] = useState('');
     const [MovieYear,setMovieYear ] = useState(0);
@@ -21,7 +21,7 @@ const MovieInputComponent = ({movies,addMovie}) =>{
         };
 
         // pass in movie details to function 
-            addMovie(movieDetails);
+            addMovies(movieDetails);
     };
     return (
        <div className ="row mb-5">

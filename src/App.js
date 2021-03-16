@@ -1,9 +1,10 @@
 import MovieInputComponent from './fieldComponent';
 import MovieListComponent from "./MovieList.js";
 import HeadingComponent from "./Heading";
+import { useState } from 'react';
 
 function App() {
-  const movies = [
+  const moviesData = [
     {
       id: 1,
       title: "Training Day",
@@ -96,20 +97,21 @@ function App() {
     },
   ];
 
+  const [movies, setMovies] = useState(moviesData);
+
   // title of webpage 
   const title ='Movie List';
 
   // add new movie to the list
-  const addMovie = (movie) =>{
+  const addMovies = (movie) =>{
     // merge new movie with added movies
-    const addedMovie = [...movies, movie];
-    console.log(addedMovie);
+    setMovies([...movies,movie])
   };
 
   return (
     <div className="container">
       <HeadingComponent title = {title} />
-      <MovieInputComponent movies = {movies} addMovie ={addMovie}/>
+      <MovieInputComponent movies = {movies} addMovies={addMovies}/>
       <MovieListComponent movies={movies} />
     </div>
   );
