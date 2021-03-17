@@ -1,4 +1,4 @@
-const MovieListComponent = ({ movies }) => {
+const MovieListComponent = ({movies, rerender}) => {
   const getMovieDetails = (movieId) => {
     const foundMovie = movies.find((movie) => movie.id === movieId);
     // check to see if movie in array
@@ -8,6 +8,15 @@ const MovieListComponent = ({ movies }) => {
       alert(`${foundMovie.title}: ${foundMovie.genre}, ${foundMovie.year}`);
     }
   };
+  const removeMovie = (movieId, index) => {
+    movies.map(movie => {
+      const foundMovie = movie.id === movieId
+      if (foundMovie) {
+        movies.splice(index, 1);
+      }
+    })
+    rerender();
+  }
   return (
     <div className="row text-center mx-auto">
       <div className="col">
@@ -49,6 +58,11 @@ const MovieListComponent = ({ movies }) => {
                       onClick={() => getMovieDetails(movie.id)}
                     >
                       Click
+                    </button> <br />
+                    <button className="btn btn-outline-danger mt-3"
+                    onClick={() => removeMovie(movie.id,index)}
+                    >Remove
+                    
                     </button>
                   </td>
                 </tr>

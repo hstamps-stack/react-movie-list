@@ -107,12 +107,14 @@ function App() {
     // merge new movie with added movies
     setMovies([...movies,movie])
   };
-
+  const rerender = () => {
+    setMovies([...movies])
+  }
   return (
     <div className="container">
       <HeadingComponent title = {title} />
       <MovieInputComponent movies = {movies} addMovies={addMovies}/>
-      <MovieListComponent movies={movies} />
+      <MovieListComponent movies={movies} rerender={rerender} />
     </div>
   );
 }

@@ -83,6 +83,7 @@ const MovieInputComponent = ({movies,addMovies}) =>{
                         </input>
                     </div>
                     <button className="btn btn-primary btn-block">Save</button>
+                    <button className='btn btn-outline-danger'>Remove</button>
                 </form>
            </div>
        </div>
